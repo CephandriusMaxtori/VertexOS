@@ -1,9 +1,8 @@
 import './styles.css';
 
 import { useState } from 'react';
-import { VertexOsAppStore } from './VertexOsAppStore/VertexOsAppStore';
-
-type View = 'home' | 'app-store';
+import { VertexOsAppStore } from './VertexOsAppStore/VertexOsAppStore';import { VertexOsSettings } from './VertexOsSettings/VertexOsSettings';
+type View = 'home' | 'app-store' | 'settings';
 
 type AppIconProps = {
   text?: string;
@@ -31,6 +30,16 @@ function App() {
         onHomeClick={() => setView('home')}
         isHomeActive={false}
         isAppStoreActive={true}
+      />
+    );
+  }
+
+  if (view === 'settings') {
+    return (
+      <VertexOsSettings
+        onHomeClick={() => setView('home')}
+        isHomeActive={false}
+        isSettingsActive={true}
       />
     );
   }
@@ -134,15 +143,15 @@ function App() {
           </div>
           <span className="dock-indicator" aria-hidden="true" />
         </button>
+        <button type="button" className="dock-settings" onClick={() => setView('settings')} aria-label="Settings">
+          <div className="tile2">
+            <img className="icon-settings" src="/icon-settings0.svg" alt="" />
+          </div>
+          <span className="dock-indicator" aria-hidden="true" />
+        </button>
         <div className="dock-files">
           <div className="tile2">
             <img className="icon-files" src="/icon-files0.svg" alt="Files" />
-          </div>
-          <div className="running2" />
-        </div>
-        <div className="dock-settings">
-          <div className="tile2">
-            <img className="icon-settings" src="/icon-settings0.svg" alt="Settings" />
           </div>
           <div className="running2" />
         </div>
