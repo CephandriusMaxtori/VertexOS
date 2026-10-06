@@ -1,5 +1,10 @@
 import './styles.css';
 
+import { useState } from 'react';
+import { VertexOsAppStore } from './VertexOsAppStore/VertexOsAppStore';
+
+type View = 'home' | 'app-store';
+
 type AppIconProps = {
   text?: string;
   text2?: string;
@@ -18,6 +23,18 @@ const AppIcon = ({ text = 'A', text2 = 'App', className = '' }: AppIconProps) =>
 };
 
 function App() {
+  const [view, setView] = useState<View>('home');
+
+  if (view === 'app-store') {
+    return (
+      <VertexOsAppStore
+        onHomeClick={() => setView('home')}
+        isHomeActive={false}
+        isAppStoreActive={true}
+      />
+    );
+  }
+
   return (
     <div className="umbrel-os-home">
       <div className="glow" />
@@ -105,18 +122,18 @@ function App() {
       </div>
 
       <div className="dock">
-        <div className="dock-home">
+        <button type="button" className="dock-home" onClick={() => setView('home')} aria-label="Home">
           <div className="tile">
-            <img className="icon-home" src="/icon-home0.svg" alt="Home" />
+            <img className="icon-home" src="/icon-home0.svg" alt="" />
           </div>
-          <div className="running" />
-        </div>
-        <div className="dock-app-store">
+          <span className="dock-indicator active" aria-hidden="true" />
+        </button>
+        <button type="button" className="dock-app-store" onClick={() => setView('app-store')} aria-label="App Store">
           <div className="tile2">
-            <img className="icon-app-store" src="/icon-app-store0.svg" alt="App Store" />
+            <img className="icon-app-store" src="/icon-app-store0.svg" alt="" />
           </div>
-          <div className="running2" />
-        </div>
+          <span className="dock-indicator" aria-hidden="true" />
+        </button>
         <div className="dock-files">
           <div className="tile2">
             <img className="icon-files" src="/icon-files0.svg" alt="Files" />

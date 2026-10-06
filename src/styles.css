@@ -33,9 +33,11 @@ body,
   background: linear-gradient(180deg, #1a1038 0%, #0b0a24 100%);
   color: #ffffff;
   font-family: 'Inter', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
 body {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,9 +59,9 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 900px;
-  width: 100%;
-  max-width: 1280px;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: none;
   position: relative;
   overflow: hidden;
 }
@@ -78,10 +80,10 @@ button {
 .umbrel-os-home .glow2 {
   background: rgba(236, 72, 153, 0.45);
   border-radius: 50%;
-  width: 620px;
-  height: 620px;
+  width: min(620px, 50vw);
+  height: min(620px, 50vw);
   position: absolute;
-  left: 850px;
+  right: -120px;
   top: -120px;
   filter: blur(80px);
 }
@@ -89,11 +91,13 @@ button {
 .umbrel-os-home .glow3 {
   background: rgba(37, 99, 235, 0.55);
   border-radius: 50%;
-  width: 820px;
-  height: 820px;
+  width: min(820px, 68vw);
+  height: min(820px, 68vw);
   position: absolute;
-  left: 450px;
-  top: 420px;
+  right: 8%;
+  bottom: -240px;
+  top: auto;
+  left: auto;
   filter: blur(80px);
 }
 
@@ -450,7 +454,16 @@ button {
 .umbrel-os-home .running2 {
   background: rgba(255, 255, 255, 0);
 }
+.umbrel-os-home .dock-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: transparent;
+}
 
+.umbrel-os-home .dock-indicator.active {
+  background: rgba(255, 255, 255, 0.95);
+}
 .umbrel-os-home .divider {
   background: rgba(255, 255, 255, 0.3);
   width: 1px;
