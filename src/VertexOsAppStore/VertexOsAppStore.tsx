@@ -1,17 +1,16 @@
 import "./VertexOsAppStore.css";
+import { Dock, DockView } from "../Dock/Dock";
 
 export interface IVertexOsAppStoreProps {
   className?: string;
-  onHomeClick?: () => void;
-  isHomeActive?: boolean;
-  isAppStoreActive?: boolean;
+  onNavigate?: (view: DockView) => void;
+  activeView?: DockView;
 }
 
 export const VertexOsAppStore = ({
   className,
-  onHomeClick,
-  isHomeActive = true,
-  isAppStoreActive = false,
+  onNavigate,
+  activeView = "app-store",
   ...props
 }: IVertexOsAppStoreProps): JSX.Element => {
   return (
@@ -34,45 +33,7 @@ export const VertexOsAppStore = ({
           </div>
         </div>
       </div>
-      <div className="dock">
-        <button type="button" className="dock-home" onClick={onHomeClick} aria-label="Home">
-          <div className="tile">
-            <img className="icon-home" src="icon-home0.svg" alt="" />
-          </div>
-          <span className={`dock-indicator ${isHomeActive ? 'active' : ''}`} aria-hidden="true" />
-        </button>
-        <div className="dock-app-store">
-          <div className="tile2">
-            <img className="icon-app-store" src="icon-app-store0.svg" />
-          </div>
-          <span className={`dock-indicator ${isAppStoreActive ? 'active' : ''}`} aria-hidden="true" />
-        </div>
-        <div className="dock-files">
-          <div className="tile">
-            <img className="icon-files" src="icon-files0.svg" />
-          </div>
-          <div className="running2"></div>
-        </div>
-        <div className="dock-settings">
-          <div className="tile">
-            <img className="icon-settings" src="icon-settings0.svg" />
-          </div>
-          <div className="running2"></div>
-        </div>
-        <div className="divider"></div>
-        <div className="dock-bitcoin-node">
-          <div className="tile3">
-            <div className="b">B </div>
-          </div>
-          <div className="running"></div>
-        </div>
-        <div className="dock-nextcloud">
-          <div className="tile4">
-            <div className="n">N </div>
-          </div>
-          <div className="running"></div>
-        </div>
-      </div>
+      <Dock activeView={activeView} onNavigate={onNavigate ?? (() => {})} />
       <div className="back-tile"></div>
       <div className="icon-appstore-jellyfin">
         <div className="tile5">

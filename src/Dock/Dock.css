@@ -1,0 +1,143 @@
+.dock {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 12px 16px 10px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0px 12px 32px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+}
+
+.dock-home,
+.dock-app-store,
+.dock-settings,
+.dock-files,
+.dock-ethernet,
+.dock-nextcloud {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dock-files,
+.dock-ethernet,
+.dock-nextcloud {
+  cursor: default;
+}
+
+.tile {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.tile.active-tile {
+  background: linear-gradient(180deg, rgba(167, 139, 250, 1) 0%, rgba(109, 40, 217, 1) 100%);
+}
+
+.tile3 {
+  background: linear-gradient(180deg, rgba(251, 191, 36, 1) 0%, rgba(217, 119, 6, 1) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.tile4 {
+  background: linear-gradient(180deg, rgba(56, 189, 248, 1) 0%, rgba(29, 78, 216, 1) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.icon-home,
+.icon-app-store,
+.icon-settings,
+.icon-files {
+  width: 28px;
+  height: 28px;
+  position: relative;
+}
+
+.dock-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.dock-indicator.active {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+
+.running {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  position: relative;
+}
+
+.running2 {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  position: relative;
+}
+
+.divider {
+  background: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+  width: 1px;
+  height: 44px;
+  align-self: center;
+  position: relative;
+}
+
+.e,
+.n {
+  color: #ffffff;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
